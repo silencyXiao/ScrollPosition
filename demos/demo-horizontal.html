@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="keywords" content="文档关键字">
+  <meta name="description" content="文档描述">
+  <meta name="robots" content="index,follow">
+  <title>水平菜单 horizontal</title>
+  <style>
+  *{ margin: 0; padding: 0; font-size: 14px; }
+  li{ list-style-type: none; }
+  .inner{ width: 1200px; margin-right: auto; margin-left: auto; }
+  #scrollPosition{ margin-top:100px; background-color: #fff; }
+  #scrollPosition > .scroll-pagination{ width: 1200px; height: 40px; line-height: 40px; background-color: #eee; text-align: center; }
+  #scrollPosition > .scroll-pagination-fixed{ display: block; position: fixed; left: 50%; top: 0; margin-left: -600px; }
+  #scrollPosition > .scroll-pagination li{ float: left; height: 40px; padding: 0 20px; color: #666; cursor:pointer;}
+  #scrollPosition > .scroll-pagination li.active{ background-color: #666; color: #fff; }
+  #scrollPosition > .scroll-container > .scroll-section{ background-color: #f5f5f5; }
+  </style>
+</head>
+<body>
+<div id="scrollPosition" class="inner">
+  <ul class="scroll-pagination">
+    <li class="active">菜单一</li>
+    <li>菜单二</li>
+    <li>菜单三</li>
+    <li>菜单四</li>
+    <li>菜单五</li>
+  </ul>
+  <div class="scroll-container">
+    <div class="scroll-section" style="height: 500px; ">菜单一</div>  
+    <div class="scroll-section" style="height: 1000px;">菜单二</div>  
+    <div class="scroll-section" style="height: 800px; ">菜单三</div>  
+    <div class="scroll-section" style="height: 400px; ">菜单四</div>  
+    <div class="scroll-section" style="height: 100px; ">菜单五</div> 
+  </div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script> 
+<script src="./dist/js/jquery.scrollPosition.min.js"></script> 
+<script>
+var scrollPosition = new ScrollPosition('#scrollPosition', {
+  type: 'horizontal',
+  offsetY: 10,
+  fixedClass: 'scroll-pagination-fixed'
+}); 
+</script>  
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "scrollposition",
+  "version": "1.0.0",
+  "description": "滚滚动定位\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D基于jquery滚动定位的插件",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silencyXiao/ScrollPosition.git"
+  },
+  "keywords": [
+    "滚动定位scrollPosition�.js"
+  ],
+  "author": "silencyXiao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silencyXiao/ScrollPosition/issues"
+  },
+  "homepage": "https://github.com/silencyXiao/ScrollPosition#readme"
+}
