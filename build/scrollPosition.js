@@ -93,9 +93,10 @@
       var documentHeight = $(document).height(); //页面文档高度
       var wrapHeight = this.$scrollWrap.height(); //整个模块的高度
       var wrapOffset = this.$scrollWrap.offset().top; // 整个模块的偏移值
+      var wrapScrollTop = $(obj).scrollTop();
 
       //滚动距离大于整个模块的offsetTop时固定菜单
-      if($(obj).scrollTop() > wrapOffset) {
+      if(wrapScrollTop > wrapOffset && wrapScrollTop <= wrapHeight + wrapOffset) {
 
         if (this.options.type === 'horizontal') {
           this.$scrollWrap.css('padding-top', this.paginationHeight); //给模块添加一个与菜单高度一样的padding-top  
@@ -105,17 +106,17 @@
         }
       }
       //当滚动超过整个模块最底端 或 当滚动还未达到整个模块顶端时，移除固定菜单样式
-      if( $(obj).scrollTop() > wrapHeight + wrapOffset || $(obj).scrollTop() <= wrapOffset) {
+      if( wrapScrollTop > wrapHeight + wrapOffset || wrapScrollTop <= wrapOffset) {
         this.$scrollPagination.removeClass(this.options.fixedClass);
         this.$scrollWrap.css('padding-top', 0);
       }
       for(var i=0; i<this.offsetArr.length; i++) {
         //如果滚动位置大于当前目标偏移值 且 小于当前目标下一个目标偏移值时显示为当前值
-        if($(obj).scrollTop() >= this.offsetArr[i] && $(obj).scrollTop() < this.offsetArr[i+1]) {
+        if(wrapScrollTop >= this.offsetArr[i] && wrapScrollTop < this.offsetArr[i+1]) {
           this.$scrollPagination.find('li').eq(i).addClass('active').siblings('li').removeClass('active');
         }
         //如果当前位置已经达到最底层时，直接点亮最后一个目标的菜单
-        if($(obj).scrollTop() === documentHeight - windowHeight){
+        if(wrapScrollTop === documentHeight - windowHeight){
           this.$scrollPagination.find('li').eq(i-1).addClass('active').siblings('li').removeClass('active');  
         }
       }
